@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation App</title>
+
+    <style>
+        body {
+            
+            background-color: skyblue;
+            background-repeat: no-repeat;
+        }
+
+        #ship {
+            height: 100px;
+            width: 150px;
+            margin-top: 5%;
+        }
+
+        #man {
+            height: 100px;
+            width: 100px;
+            margin-top: 5%;
+        }
+
+        .play {
+            background-color: green;
+            color: honeydew;
+            cursor: pointer;
+        }
+
+        .pause {
+            background-color: red;
+            color: honeydew;
+            cursor: pointer;
+        }
+
+        .reverse {
+            background-color: yellow;
+            color: black;
+            cursor: pointer;
+        }
+
+       
+    </style>
+    <script>
+        window.addEventListener("load", function () {
+            var boxElement1 = document.querySelector("#ship");
+            var shapeElement1 = boxElement1.animate([
+                { transform: "translate(0px, 0px)" },
+                { transform: "translate(1200px, 0px)" }
+            ], {
+                duration: 10000,
+                iterations: Infinity
+
+            })
+            var boxElement2 = document.querySelector("#man");
+            var shapeElement2 = boxElement2.animate([
+                { transform: 'translateX(1000px)' },
+                { transform: 'translateX(0px)' }
+            ], {
+                duration: 17000,
+                iterations: Infinity,
+            });
+            document.querySelector(".play").addEventListener("click", function () {
+                shapeElement1.play();
+            });
+            document.querySelector(".pause").addEventListener("click", function () {
+                shapeElement1.pause();
+            });
+            document.querySelector(".reverse").addEventListener("click", function () {
+                shapeElement1.reverse();
+            });
+           
+        })
+    </script>
+</head>
+
+<body>
+    <div>
+        <button class="play">Play</button>
+        <button class="pause">Pause</button>
+        <button class="reverse">Reverse</button>
+        
+    </div>
+
+    <div class="ship">
+        <img src="https://www.animatedimages.org/data/media/271/animated-ship-image-0077.gif" border="0"
+            alt="animated-ship-image-0077" id="ship" />
+
+    </div>
+    <img src="swimming.gif" id="man">
+</body>
+
+</html>
